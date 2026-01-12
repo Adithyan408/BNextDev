@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BNext Dev | Login</title>
+
+  <!-- Tailwind -->
+  <link rel="stylesheet" href="/tailwind.min.css" />
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="w-full flex items-center justify-between px-6 md:px-16 py-6">
+  <div class="text-blue-700 text-2xl font-bold tracking-wide">
+    BNext Dev
+  </div>
+
+  <div class="hidden md:flex space-x-10 text-sm font-medium text-blue-600">
+    <a href="/" class="hover:text-blue-800 transition">Home</a>
+    <a href="/about" class="hover:text-blue-800 transition">About us</a>
+    <a href="/contact" class="hover:text-blue-800 transition">Contact us</a>
+  </div>
+
+  <button id="menu-btn" class="md:hidden">
+    <svg class="w-7 h-7 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</nav>
+
+<!-- ================= MOBILE MENU ================= -->
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden">
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative bg-white pt-28 pb-16 shadow-2xl">
+    <div class="flex flex-col items-center space-y-10 text-xl font-medium">
+      <a href="/" class="text-blue-600">Home</a>
+      <a href="/about" class="text-blue-600">About us</a>
+      <a href="/contact" class="text-blue-600">Contact us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= AUTH CARD ================= -->
+<main class="flex-1 flex items-center justify-center px-4">
+
+  <div class="bg-white w-full max-w-sm rounded-2xl shadow-xl px-8 py-10 text-center">
+
+    <!-- Logo -->
+    <div class="flex items-center justify-center gap-2 text-blue-600 font-bold text-lg mb-4">
+      <span class="text-xl">&lt;/&gt;</span>
+      <span>BNext Dev</span>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-xl font-semibold text-gray-900">
+      Welcome Back
+    </h1>
+    <p class="text-sm text-gray-500 mt-1 mb-8">
+      Sign in to continue your learning journey
+    </p>
+
+    <!-- Google Button -->
+    <a
+      href="/auth/google"
+      class="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700
+             text-white font-medium py-2.5 rounded-lg transition shadow-md"
+    >
+      <div class="bg-white rounded-full p-1 flex items-center justify-center">
+        <img
+          src="https://img.icons8.com/color/48/000000/google-logo.png"
+          class="w-4 h-4"
+          alt="Google"
+        />
+      </div>
+      Continue with Google
+    </a>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-3 my-6">
+      <div class="flex-1 h-px bg-gray-200"></div>
+      <span class="text-xs text-gray-400">or</span>
+      <div class="flex-1 h-px bg-gray-200"></div>
+    </div>
+
+    <!-- Email Disabled -->
+    <button
+      disabled
+      class="w-full py-2.5 rounded-lg border border-gray-200 text-gray-400
+             bg-gray-50 cursor-not-allowed"
+    >
+      Sign in with Email (Coming Soon)
+    </button>
+
+    <!-- Terms -->
+    <p class="text-xs text-gray-400 mt-6 leading-relaxed">
+      By continuing, you agree to our
+      <a href="/terms" class="text-blue-600 hover:underline">Terms of Service</a>
+      and
+      <a href="/privacy" class="text-blue-600 hover:underline">Privacy Policy</a>
+    </p>
+
+  </div>
+
+</main>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu || e.target.tagName === "A") {
+      mobileMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+</body>
+</html>
