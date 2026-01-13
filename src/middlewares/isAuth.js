@@ -1,6 +1,6 @@
 export const isAuth = (req, res, next) => {
-  if (req.isAuthenticated && req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/get-started');
+  return res.redirect('/get-started');
 };

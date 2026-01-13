@@ -38,13 +38,6 @@ const userSchema = new Schema(
       unique: true,
       sparse: true
     },
-    password: {
-      type: String,
-      required: false
-    },
-    newPassword: {
-      type: String
-    },
     isBlocked: {
       type: Boolean,
       default: false
@@ -52,11 +45,6 @@ const userSchema = new Schema(
     isAdmin: {
       type: Boolean,
       default: false
-    },
-    status: {
-      type: String,
-      enum: ['ACTIVE', 'INACTIVE'],
-      default: 'ACTIVE'
     },
     selectedDomains: [
       {
